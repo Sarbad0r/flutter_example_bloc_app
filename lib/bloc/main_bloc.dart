@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_example_3/bloc/main_bloc_events.dart';
 import 'package:flutter_bloc_example_3/bloc/main_bloc_states.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter_bloc_example_3/models/product_model.dart';
 
 class MainBloc extends Bloc<MainBlocEvents, MainBlocStates> {
   MainBloc() : super(InitialState([], [])) {
@@ -50,9 +51,9 @@ class MainBloc extends Bloc<MainBlocEvents, MainBlocStates> {
     on<EditProductEvent>((event, emit) {
       var getCurrentState = state;
 
-      getCurrentState.productList
-          ?.firstWhereOrNull((element) => element.id == event.product.id)
-          ?.name = event.newName;
+      getCurrentState.productList?[getCurrentState.productList!
+              .indexWhere((element) => element.id == event.product.id)] =
+          Product.copyProduct(event.product, event.newName ?? '');
 
       ScaffoldMessenger.of(event.context)
           .showSnackBar(const SnackBar(content: Text('Успешно изменен')));

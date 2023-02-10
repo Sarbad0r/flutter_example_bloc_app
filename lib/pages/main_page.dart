@@ -5,7 +5,6 @@ import 'package:flutter_bloc_example_3/bloc/main_bloc_events.dart';
 import 'package:flutter_bloc_example_3/bloc/main_bloc_states.dart';
 import 'package:flutter_bloc_example_3/widgets/add_assortment_widget.dart';
 import 'package:flutter_bloc_example_3/widgets/add_product_widget.dart';
-import 'package:flutter_bloc_example_3/widgets/edit_product_widget.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -25,7 +24,7 @@ class MainPage extends StatelessWidget {
                 else if (state is ShowAssortmentAddWidget)
                   const AddAssortmentWidget()
                 else if (state is ShowEditingProduct)
-                  EditProduct(product: state.product),
+                  const AddProductWidget(),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

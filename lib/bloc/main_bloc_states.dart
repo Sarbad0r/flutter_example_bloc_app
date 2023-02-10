@@ -6,6 +6,7 @@ abstract class MainBlocStates {
   List<Product>? productList;
 
   MainBlocStates({this.assortmentList, this.productList});
+
 }
 
 class InitialState extends MainBlocStates {
