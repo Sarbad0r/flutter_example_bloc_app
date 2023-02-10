@@ -6,7 +6,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter_bloc_example_3/models/product_model.dart';
 
 class MainBloc extends Bloc<MainBlocEvents, MainBlocStates> {
-  MainBloc() : super(InitialState([], [])) {
+  MainBloc() : super(InitialState(Product.prodInitList, [])) {
     on<ShowAddingProduct>((event, emit) {
       emit(ShowProductAddWidget.fromState(
           state.assortmentList ?? [], state.productList ?? []));
